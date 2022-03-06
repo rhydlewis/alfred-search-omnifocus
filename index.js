@@ -9,7 +9,7 @@ import { hideBin } from "yargs/helpers";
 const argv = yargs(hideBin(process.argv)).argv
 const NO_RESULTS = [{
 	icon: {
-		path: alfy.icon.warning,
+		path: "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertNoteIcon.icns"
 	},
 	title: "No results"
 }]
