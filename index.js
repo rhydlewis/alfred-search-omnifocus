@@ -3,6 +3,7 @@
 import alfy from 'alfy';
 import {searchTasks} from "./query_factory.js";
 import {listPerspectives} from "./omnifocus.js";
+import {createTask} from "./result_factory.js"
 
 import yargs from 'yargs'
 import { hideBin } from "yargs/helpers";
@@ -40,9 +41,6 @@ function main() {
 
 function outputResults(results) {
 	/*
-	if not results:
-        wf.add_item('No items', icon=ICON_WARNING)
-    else:
         for result in results:
             if query_type == PROJECT:
                 item = factory.create_project(result)
@@ -61,11 +59,11 @@ function outputResults(results) {
 
 	let items = NO_RESULTS
 
-	if (results !== undefined && results.length > 0) {
-		// create results
-		// alfy.output(results.filter(function (item) {
-		// 	return item.title.toLowerCase().indexOf(argv.query.toLowerCase()) >= 0;
-		// }))
+	if (results !== null && results.length > 0) {
+		items = []
+		if (argv.type === TASK) {
+			results.forEach(result => { items.push(createTask(result)) })
+		}
 	}
 
 	alfy.output(items)

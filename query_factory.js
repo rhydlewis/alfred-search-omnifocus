@@ -21,12 +21,12 @@ function generateSQL(s, f, w, o) {
 }
 
 function runQuery(sql) {
-    let path = alfy.userConfig.get('dbPath');
-    if (path === undefined) {
-        path = "/Users/rhyd/Library/Group Containers/34YW5XSRB7.com.omnigroup.OmniFocus/com.omnigroup.OmniFocus3.MacAppStore/com.omnigroup.OmniFocusModel/OmniFocusDatabase.db"
+    let dbPath = alfy.userConfig.get('dbPath');
+    if (dbPath === undefined) {
+        dbPath = "/Users/rhyd/Library/Group Containers/34YW5XSRB7.com.omnigroup.OmniFocus/com.omnigroup.OmniFocus3.MacAppStore/com.omnigroup.OmniFocusModel/OmniFocusDatabase.db"
     }
 
-    const db = new Database(path, sqliteOptions);
+    const db = new Database(dbPath, sqliteOptions);
 
     try {
         // alfy.log(`Running ${sql}`)
@@ -43,7 +43,7 @@ function runQuery(sql) {
     }
 }
 
-export function searchTasks(query, completed_only=undefined) {
+export function searchTasks(query, completed_only=null) {
     let whereClause = completed_only ? (CLOSED_TASK_LIKE + query + LIKE_SUFFIX + WHERE_SUFFIX) :
         (OPEN_TASK_LIKE + query + LIKE_SUFFIX + WHERE_SUFFIX)
     let sql = generateSQL(TASK_SELECT, TASK_FROM, whereClause, `t.${NAME_SORT}`)

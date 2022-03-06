@@ -14,7 +14,7 @@ const REVIEW = 'Review'
 const DEFAULT_PERSPECTIVES = [INBOX, PROJECTS, TAGS, FORECAST, FLAGGED, REVIEW]
 
 // Icons
-const OF_ICON_ROOT = "/Applications/OmniFocus.app/Contents/Resources"
+export const OF_ICON_ROOT = "/Applications/OmniFocus.app/Contents/Resources"
 const DEFAULT_PERSPECTIVE_ICON = path.join(OF_ICON_ROOT, 'AppIcon-Credits.png')
 const PERSPECTIVE_ICON = path.join(OF_ICON_ROOT, 'Perspectives@2x.png')
 
@@ -39,7 +39,7 @@ function runScript(script) {
             if (Array.isArray(names)) {
                 let plist = []
                 names.forEach(function (name) {
-                    if (name !== "missing value" && name !== undefined) {
+                    if (name !== "missing value" && name !== null) {
                         plist.push(name)
                     }
                 });
