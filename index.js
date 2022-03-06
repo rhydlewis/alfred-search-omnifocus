@@ -7,12 +7,12 @@ import {listPerspectives} from "./omnifocus.js";
 import yargs from 'yargs'
 import { hideBin } from "yargs/helpers";
 const argv = yargs(hideBin(process.argv)).argv
-const NO_RESULTS = {
+const NO_RESULTS = [{
 	icon: {
 		path: alfy.icon.warning,
 	},
 	title: "No results"
-}
+}]
 
 const PERSPECTIVE = 'v'
 const TASK = 't'
@@ -67,7 +67,7 @@ function outputResults(results) {
 		// 	return item.title.toLowerCase().indexOf(argv.query.toLowerCase()) >= 0;
 		// }))
 	}
-	
+
 	alfy.output(items)
 }
 
