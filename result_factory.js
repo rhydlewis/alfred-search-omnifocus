@@ -51,7 +51,7 @@ export function createTask(result) {
 
     let iconPath = ACTIVE_ICON
     let dateCompleted = result["date_completed"]
-
+    let projectName = result["project_name"]
     let blockedByFutureDate = result["blocked_by_future_start_date"] === 1
     let blocked = result["blocked"] === 1
     let childCount = result["child_count"]
@@ -62,7 +62,10 @@ export function createTask(result) {
     // let actualStartDate = effectiveStartDate === 0 ? startDate : effectiveStartDate
 
     if (dateCompleted) iconPath = COMPLETED_ICON
-    else if (inboxTask) iconPath = INBOX_ICON
+    else if (inboxTask) {
+        iconPath = INBOX_ICON
+        projectName = "Inbox"
+    }
     else if (blockedByFutureDate || (blocked && !childCount) || parentStatus !== STATUS_ACTIVE) iconPath = ON_HOLD_ICON
     // else if (isDeferred(actualStartDate)) iconPath = DEFERRED_ICON
 
@@ -71,7 +74,7 @@ export function createTask(result) {
             path: iconPath
         },
         title: result["name"],
-        subtitle: result["project_name"],
+        subtitle: projectName,
         arg: result["id"]
     }
 }

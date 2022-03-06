@@ -8,6 +8,7 @@ import {createTask} from "./result_factory.js"
 import yargs from 'yargs'
 import { hideBin } from "yargs/helpers";
 const argv = yargs(hideBin(process.argv)).argv
+
 const NO_RESULTS = [{
 	icon: {
 		path: "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertNoteIcon.icns"
@@ -20,7 +21,7 @@ const TASK = 't'
 
 function main() {
 	if (argv.type !== PERSPECTIVE) {
-		let results = searchTasks(argv.query)
+		let results = searchTasks(argv.query, argv.completedOnly, argv.flaggedOnly)
 		outputResults(results)
 	}
 	else {

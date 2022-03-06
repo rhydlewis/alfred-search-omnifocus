@@ -43,9 +43,10 @@ function runQuery(sql) {
     }
 }
 
-export function searchTasks(query, completed_only=null) {
-    let whereClause = completed_only ? (CLOSED_TASK_LIKE + query + LIKE_SUFFIX + WHERE_SUFFIX) :
+export function searchTasks(query, completedOnly=null, flaggedOnly = null) {
+    let whereClause = completedOnly ? (CLOSED_TASK_LIKE + query + LIKE_SUFFIX + WHERE_SUFFIX) :
         (OPEN_TASK_LIKE + query + LIKE_SUFFIX + WHERE_SUFFIX)
+    if (flaggedOnly) whereClause = "(t.flagged = 1 OR t.effectiveFlagged = 1) AND " + whereClause
     let sql = generateSQL(TASK_SELECT, TASK_FROM, whereClause, `t.${NAME_SORT}`)
     return runQuery(sql)
 }
