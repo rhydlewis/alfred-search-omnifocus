@@ -1,0 +1,26 @@
+{
+  "name": "search-omnifocus-js",
+  "version": "1.0.0",
+  "licence": "MIT",
+  "description": "",
+  "engines": {
+    "node": ">=4"
+  },
+  "files": [
+    "index.js",
+    "query_factory.js",
+    "icon.png",
+    "info.plist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "dependencies": {
+    "alfy": "^0.12.2",
+    "applescript": "^1.0.0",
+    "better-sqlite3": "^7.5.0",
+    "yargs": "^17.3.1"
+  }
+}
