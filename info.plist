@@ -329,7 +329,7 @@ end run</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js --type t --completed-only --query "$1"</string>
+				<string>./node_modules/.bin/run-node index.js --type t --completedOnly --query "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -446,7 +446,7 @@ end run</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js --type t --flagged --query "$1"</string>
+				<string>./node_modules/.bin/run-node index.js --type t --flaggedOnly --query "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
