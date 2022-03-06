@@ -21,7 +21,7 @@ const TASK = 't'
 
 function main() {
 	if (argv.type !== PERSPECTIVE) {
-		let results = searchTasks(argv.query, argv.completedOnly, argv.flaggedOnly)
+		let results = searchTasks(argv.query, argv.completedOnly, argv.flaggedOnly, argv.activeOnly, argv.everything)
 		outputResults(results)
 	}
 	else {

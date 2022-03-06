@@ -43,10 +43,14 @@ function runQuery(sql) {
     }
 }
 
-export function searchTasks(query, completedOnly=null, flaggedOnly = null) {
+export function searchTasks(query, completedOnly=null, flaggedOnly = null,
+                            activeOnly=null, everything=null) {
     let whereClause = completedOnly ? (CLOSED_TASK_LIKE + query + LIKE_SUFFIX + WHERE_SUFFIX) :
         (OPEN_TASK_LIKE + query + LIKE_SUFFIX + WHERE_SUFFIX)
     if (flaggedOnly) whereClause = "(t.flagged = 1 OR t.effectiveFlagged = 1) AND " + whereClause
+    if (activeOnly) whereClause = "(t.blocked = 0 AND t.blockedByFutureStartDate = 0) AND " + whereClause
+    if (!everything) whereClause = "(t.effectiveInInbox = 0 AND t.inInbox = 0) AND " + whereClause
+
     let sql = generateSQL(TASK_SELECT, TASK_FROM, whereClause, `t.${NAME_SORT}`)
     return runQuery(sql)
 }
