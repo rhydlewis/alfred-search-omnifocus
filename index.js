@@ -28,7 +28,9 @@ function main() {
 		if (argv.query) {
 			listPerspectives().then(perspectives => {
 				alfy.output(perspectives.filter(function (item) {
-					return item.title.toLowerCase().indexOf(argv.query.toLowerCase()) >= 0;
+					if (item.name.toLowerCase().indexOf(argv.query.toLowerCase()) >= 0) {
+						return {item: item.name, subtitle: item.subtitle, icon: item.icon}
+					}
 				}))
 			})
 		}

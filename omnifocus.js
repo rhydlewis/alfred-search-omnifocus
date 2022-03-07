@@ -50,12 +50,19 @@ function runScript(script) {
 }
 
 function createPerspective(name) {
-    let icon = PERSPECTIVE_ICON
+    let iconPath = PERSPECTIVE_ICON
     let perspective_type = 'Custom'
     if (DEFAULT_PERSPECTIVES.includes(name)) {
-        icon = DEFAULT_PERSPECTIVE_ICON
+        iconPath = DEFAULT_PERSPECTIVE_ICON
         perspective_type = 'Default'
     }
 
-    return {name: name, title: name, icon: icon, subtitle: `Omnifocus ${perspective_type} Perspective`}
+    return {
+        name: name,
+        arg: name,
+        icon: {
+            path: iconPath
+        },
+        subtitle: `Omnifocus ${perspective_type} Perspective`
+    }
 }
