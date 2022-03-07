@@ -58,7 +58,7 @@ function createPerspective(name) {
     }
 
     return {
-        name: name,
+        title: name,
         arg: name,
         icon: {
             path: iconPath
