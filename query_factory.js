@@ -14,7 +14,8 @@ const OPEN_TASK_LIKE = "t.dateCompleted IS NULL AND lower(t.name) LIKE lower('%"
 const CLOSED_TASK_LIKE = "t.dateCompleted IS NOT NULL AND lower(t.name) LIKE lower('%"
 const LIKE_SUFFIX = "%') AND "
 const NAME_SORT  = "name ASC"
-
+const PROJECT_SELECT = "p.pk AS id, t.name AS name, p.status AS status, p.numberOfAvailableTasks AS available_task_count, p.numberOfRemainingTasks AS remaining_task_count, p.containsSingletonActions AS singleton, f.name AS folder_name, t.dateToStart AS start_date, t.effectiveDateToStart AS effective_start_date"
+const PROJECT_FROM = "(ProjectInfo p LEFT JOIN Task t ON p.task=t.persistentIdentifier) LEFT JOIN Folder f ON p.folder=f.persistentIdentifier"
 
 function generateSQL(s, f, w, o) {
     return `SELECT ${s} FROM ${f} WHERE ${w} ORDER BY ${o}`
@@ -29,10 +30,10 @@ function runQuery(sql) {
     const db = new Database(dbPath, sqliteOptions);
 
     try {
-        // alfy.log(`Running ${sql}`)
+        console.log(`Running ${sql}`)
         const stmt = db.prepare(sql)
         const results = stmt.all()
-        // alfy.log(`Found ${results.length} results`)
+        console.log(`Found ${results.length} results`)
         return results
     }
     catch (err) {
@@ -55,21 +56,12 @@ export function searchTasks(query, completedOnly=null, flaggedOnly = null,
     return runQuery(sql)
 }
 
-/*
-def search_tasks(active_only, flagged, query, everything=None, completed_only=None):
-    if active_only:
-        where = "(t.blocked = 0 AND t.blockedByFutureStartDate = 0) AND " + where
+export function searchProjects(query, activeOnly=null) {
+    let whereClause = `lower(t.name) LIKE lower('%${query}%')`
+    let orderBy = "p.containsSingletonActions DESC, t.name ASC"
 
-    if flagged:
-        where = "(t.flagged = 1 OR t.effectiveFlagged = 1) AND " + where
+    if (activeOnly) whereClause = "p.status = 'active' AND " + where
 
-    if not everything:
-        where = "(t.effectiveInInbox = 0 AND t.inInbox = 0) AND " + where
-
-    return _generate_query(TASK_SELECT, TASK_FROM, where, "t." + NAME_SORT)
-
- */
-
-// let sql = generateSQL(TASK_SELECT, TASK_FROM, (OPEN_TASK_LIKE + "guit" + LIKE_SUFFIX + WHERE_SUFFIX), `t.${NAME_SORT}`)
-// // let sql = generateSQL("count(*)", "Task t", "lower(t.name) LIKE lower('%guit%')", "t.name ASC")
-// let results = runQuery(sql)
+    let sql = generateSQL(PROJECT_SELECT, PROJECT_FROM, whereClause, orderBy)
+    return runQuery(sql)
+}

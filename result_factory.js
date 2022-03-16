@@ -18,37 +18,6 @@ const DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S.%fZ'
 const DATETIME_OFFSET = 978307200
 
 export function createTask(result) {
-    /*
-     def create_task(self, row):
-        dateToStart = result[EFFECTIVE_START_DATE] === 0 ? result[START_DATE] : result[EFFECTIVE_START_DATE]
-        date_completed = row[DATE_COMPLETED]
-
-        icon = self.active_icon
-
-        elif blocked_by_future_date or (blocked and not children) or parent_status != STATUS_ACTIVE:
-            icon = self.on_hold_icon
-        elif is_deferred(datetostart):
-            icon = self.deferred_icon
-        elif inbox:
-            icon = self.inbox_icon
-
-        if row[DUE_DATE]:
-            due_date = parse_datetime(row[DUE_DATE])
-            if due_date is not None:
-                now = datetime.now()
-                due_date_label = due_date.strftime("%c")
-
-                if now > due_date:
-                    name = name + " (overdue: {0})".format(due_date_label)
-                    icon = ICON_WARNING
-                else:
-                    name = name + " (due: {0})".format(due_date_label)
-            else:
-                name = name + " (due date unknown)"
-
-        return Item(item_type='Task', persistent_id=pid, name=name, icon=icon, subtitle=project)
-     */
-
     let iconPath = ACTIVE_ICON
     let dateCompleted = result["date_completed"]
     let projectName = result["project_name"]
@@ -77,6 +46,37 @@ export function createTask(result) {
         subtitle: projectName,
         arg: result["id"]
     }
+}
+
+export function createProject(result) {
+    let status = result["status"]
+    let folderName = result["folder_name"]
+    // datetostart = deferred_date(row[START_DATE], row[EFFECTIVE_START_DATE])
+
+    let iconPath = ACTIVE_ICON
+    switch (status) {
+        case 'done':
+            iconPath = COMPLETED_ICON;
+            break;
+        case 'dropped':
+            iconPath = DROPPED_ICON;
+            break;
+        case 'inactive':
+            iconPath = ON_HOLD_ICON;
+            break;
+    }
+
+    // if (status === 'active' && isDeferred(datetostart)) iconPath = self.deferred_icon
+
+    return {
+        icon: {
+            path: iconPath
+        },
+        title: result["name"],
+        subtitle: folderName,
+        arg: result["id"]
+    }
+
 }
 
 //
