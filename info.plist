@@ -21,6 +21,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>36D6C5C1-6B7C-4286-88DC-7A992F5441CF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1CC4E6A6-490A-4BF2-B452-05E5231C9215</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>4F1E36A8-A787-4FE7-9CE1-1CAB5F24717C</key>
 		<array>
 			<dict>
@@ -36,6 +49,29 @@
 		</array>
 		<key>8CA6BE82-70D4-49DE-B3DA-794C687C1C2C</key>
 		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1CC4E6A6-490A-4BF2-B452-05E5231C9215</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9A7C4959-0B53-43E0-8D17-9B89253377C4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5FA1E69D-11B2-4CFC-ACB8-9331C665E149</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string>Unflag the task</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>1CC4E6A6-490A-4BF2-B452-05E5231C9215</string>
@@ -464,21 +500,51 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>,p</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node index.js --type p --query "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
 				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>omnifocus:///task/{query}</string>
-				<key>utf8</key>
+				<key>subtext</key>
+				<string>Search OmniFocus projects for "{query}"</string>
+				<key>title</key>
+				<string>Search OmniFocus for projects</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
 				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>1CC4E6A6-490A-4BF2-B452-05E5231C9215</string>
+			<string>36D6C5C1-6B7C-4286-88DC-7A992F5441CF</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -529,6 +595,74 @@ end run</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>omnifocus:///task/{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>1CC4E6A6-490A-4BF2-B452-05E5231C9215</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>,ga</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node index.js --type t --flaggedOnly --activeOnly --query "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search OmniFocus active flagged tasks for "{query}"</string>
+				<key>title</key>
+				<string>Search OmniFocus for active flagged tasks only</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>9A7C4959-0B53-43E0-8D17-9B89253377C4</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -544,9 +678,16 @@ end run</string>
 		<key>1CC4E6A6-490A-4BF2-B452-05E5231C9215</key>
 		<dict>
 			<key>xpos</key>
-			<integer>360</integer>
+			<integer>480</integer>
 			<key>ypos</key>
-			<integer>450</integer>
+			<integer>565</integer>
+		</dict>
+		<key>36D6C5C1-6B7C-4286-88DC-7A992F5441CF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>540</integer>
+			<key>ypos</key>
+			<integer>355</integer>
 		</dict>
 		<key>4F1E36A8-A787-4FE7-9CE1-1CAB5F24717C</key>
 		<dict>
@@ -558,7 +699,7 @@ end run</string>
 		<key>5FA1E69D-11B2-4CFC-ACB8-9331C665E149</key>
 		<dict>
 			<key>xpos</key>
-			<integer>365</integer>
+			<integer>475</integer>
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>
@@ -568,6 +709,13 @@ end run</string>
 			<integer>110</integer>
 			<key>ypos</key>
 			<integer>190</integer>
+		</dict>
+		<key>9A7C4959-0B53-43E0-8D17-9B89253377C4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>110</integer>
+			<key>ypos</key>
+			<integer>570</integer>
 		</dict>
 		<key>B842181C-489C-43ED-8802-D093044508F1</key>
 		<dict>
@@ -586,7 +734,7 @@ end run</string>
 		<key>C6CAEE8E-F6B3-487C-9692-C9CF62DC1091</key>
 		<dict>
 			<key>xpos</key>
-			<integer>115</integer>
+			<integer>110</integer>
 			<key>ypos</key>
 			<integer>450</integer>
 		</dict>
