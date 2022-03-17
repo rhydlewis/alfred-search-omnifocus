@@ -30,10 +30,10 @@ function runQuery(sql) {
     const db = new Database(dbPath, sqliteOptions);
 
     try {
-        console.log(`Running ${sql}`)
+        alfy.log(`Running ${sql}`)
         const stmt = db.prepare(sql)
         const results = stmt.all()
-        console.log(`Found ${results.length} results`)
+        alfy.log(`Found ${results.length} results`)
         return results
     }
     catch (err) {
