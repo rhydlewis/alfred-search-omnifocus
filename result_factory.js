@@ -9,7 +9,7 @@ const ACTIVE_ICON = path.join(OF_ICON_ROOT, 'active-small@2x.png')
 const COMPLETED_ICON = path.join(OF_ICON_ROOT, 'completed@2x.png')
 const INBOX_ICON = path.join(OF_ICON_ROOT, 'inbox-sidebar@2x.png')
 const PERSPECTIVE_ICON = path.join(OF_ICON_ROOT, 'Perspectives@2x.png')
-const DEFERRED_ICON = path.join(OF_ICON_ROOT, 'deferred.png')
+const DEFERRED_ICON = path.join("./", 'deferred.png')
 const FOLDER_ICON = path.join(OF_ICON_ROOT, 'quickopen-folder@2x.png')
 
 const STATUS_ACTIVE = 'active'
