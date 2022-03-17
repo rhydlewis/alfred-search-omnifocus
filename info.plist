@@ -119,6 +119,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>D38746E5-8EF5-4AD1-8D9B-8841F7F0923D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1CC4E6A6-490A-4BF2-B452-05E5231C9215</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>F3536ACD-D122-4524-B8C3-186DC09DB878</key>
 		<array>
 			<dict>
@@ -562,6 +575,55 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
+				<string>,pa</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node index.js --type p --activeOnly --query "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search OmniFocus only projects for "{query}"</string>
+				<key>title</key>
+				<string>Search OmniFocus for active projects only</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D38746E5-8EF5-4AD1-8D9B-8841F7F0923D</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
 				<string>,g</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
@@ -737,6 +799,13 @@ end run</string>
 			<integer>110</integer>
 			<key>ypos</key>
 			<integer>450</integer>
+		</dict>
+		<key>D38746E5-8EF5-4AD1-8D9B-8841F7F0923D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>720</integer>
+			<key>ypos</key>
+			<integer>385</integer>
 		</dict>
 		<key>EF619DDA-8AD0-4F41-A4AE-9FD9437F337E</key>
 		<dict>
