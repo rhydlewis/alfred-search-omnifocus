@@ -1,6 +1,6 @@
 import path from 'path'
 import {OF_ICON_ROOT} from "./omnifocus.js"
-import {parse} from "date-fns";
+import {parseISO} from "date-fns";
 
 const DROPPED_ICON = path.join(OF_ICON_ROOT, 'dropped@2x.png')
 const FLAGGED_ICON = path.join(OF_ICON_ROOT, 'flagged@2x.png')
@@ -14,7 +14,7 @@ const FOLDER_ICON = path.join(OF_ICON_ROOT, 'quickopen-folder@2x.png')
 
 const STATUS_ACTIVE = 'active'
 
-const DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S.%fZ'
+// const DATETIME_FORMAT = 'yyyy-MM-dd[T]HH:mm:ss.ttt'
 const DATETIME_OFFSET = 978307200
 
 export function createTask(result) {
@@ -51,7 +51,7 @@ export function createTask(result) {
 export function createProject(result) {
     let status = result["status"]
     let folderName = result["folder_name"]
-    // datetostart = deferred_date(row[START_DATE], row[EFFECTIVE_START_DATE])
+    let startDate = result['start_date']
 
     let iconPath = ACTIVE_ICON
     switch (status) {
@@ -66,7 +66,7 @@ export function createProject(result) {
             break;
     }
 
-    // if (status === 'active' && isDeferred(datetostart)) iconPath = self.deferred_icon
+    if (status === 'active' && startDate !== null && isDeferred(startDate)) iconPath = DEFERRED_ICON
 
     return {
         icon: {
@@ -79,17 +79,16 @@ export function createProject(result) {
 
 }
 
-//
-// function isDeferred(actualStartDate) {
-//     let pdt = parseDatetime(actualStartDate)
-//     return (pdt !== null && pdt > Date.now())
-// }
-//
-// function parseDatetime(dt) {
-//     try {
-//         return parse(dt, DATETIME_FORMAT, new Date())
-//     }
-//     catch {
-//         return null
-//     }
-// }
+function isDeferred(actualStartDate) {
+    let pdt = parseDatetime(actualStartDate)
+    return (pdt !== null && pdt > Date.now())
+}
+
+function parseDatetime(dt) {
+    try {
+        return parseISO(dt)
+    }
+    catch (error) {
+        return null
+    }
+}

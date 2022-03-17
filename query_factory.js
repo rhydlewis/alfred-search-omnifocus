@@ -16,6 +16,7 @@ const LIKE_SUFFIX = "%') AND "
 const NAME_SORT  = "name ASC"
 const PROJECT_SELECT = "p.pk AS id, t.name AS name, p.status AS status, p.numberOfAvailableTasks AS available_task_count, p.numberOfRemainingTasks AS remaining_task_count, p.containsSingletonActions AS singleton, f.name AS folder_name, t.dateToStart AS start_date, t.effectiveDateToStart AS effective_start_date"
 const PROJECT_FROM = "(ProjectInfo p LEFT JOIN Task t ON p.task=t.persistentIdentifier) LEFT JOIN Folder f ON p.folder=f.persistentIdentifier"
+const PROJECT_ORDER_BY = "p.containsSingletonActions DESC, t.name ASC"
 
 function generateSQL(s, f, w, o) {
     return `SELECT ${s} FROM ${f} WHERE ${w} ORDER BY ${o}`
@@ -58,10 +59,8 @@ export function searchTasks(query, completedOnly=null, flaggedOnly = null,
 
 export function searchProjects(query, activeOnly=null) {
     let whereClause = `lower(t.name) LIKE lower('%${query}%')`
-    let orderBy = "p.containsSingletonActions DESC, t.name ASC"
+    if (activeOnly) whereClause = "p.status = 'active' AND " + whereClause
 
-    if (activeOnly) whereClause = "p.status = 'active' AND " + where
-
-    let sql = generateSQL(PROJECT_SELECT, PROJECT_FROM, whereClause, orderBy)
+    let sql = generateSQL(PROJECT_SELECT, PROJECT_FROM, whereClause, PROJECT_ORDER_BY)
     return runQuery(sql)
 }
