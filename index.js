@@ -1,9 +1,9 @@
 'use strict';
 
 import alfy from 'alfy';
-import {searchTasks, searchProjects} from "./query_factory.js";
+import {searchTasks, searchProjects, searchFolders} from "./query_factory.js";
 import {listPerspectives} from "./omnifocus.js";
-import {createTask, createProject} from "./result_factory.js"
+import {createTask, createProject, createFolder} from "./result_factory.js"
 
 import yargs from 'yargs'
 import { hideBin } from "yargs/helpers";
@@ -19,6 +19,7 @@ const NO_RESULTS = [{
 const PERSPECTIVE = 'v'
 const TASK = 't'
 const PROJECT = 'p'
+const FOLDER = 'f'
 
 function main() {
 	let results = undefined
@@ -31,6 +32,9 @@ function main() {
 			break;
 		case PROJECT:
 			results = searchProjects(argv.query, argv.activeOnly);
+			break;
+		case FOLDER:
+			results = searchFolders(argv.query);
 			break;
 	}
 	if (results !== undefined) outputResults(results)
@@ -64,6 +68,10 @@ function outputResults(results) {
 				break;
 			case PROJECT:
 				results.forEach(result => { items.push(createProject(result)) })
+				break;
+			case FOLDER:
+				results.forEach(result => { items.push(createFolder(result)) })
+				break;
 		}
 	}
 

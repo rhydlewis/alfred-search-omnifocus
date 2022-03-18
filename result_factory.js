@@ -76,7 +76,20 @@ export function createProject(result) {
         subtitle: folderName,
         arg: result["id"]
     }
+}
 
+
+export function createFolder(result) {
+    let iconPath = FOLDER_ICON
+
+    return {
+        icon: {
+            path: iconPath
+        },
+        title: result["name"],
+        subtitle: '',
+        arg: result["id"]
+    }
 }
 
 function isDeferred(actualStartDate) {
