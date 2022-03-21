@@ -825,7 +825,7 @@ end run</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js --type t</string>
+				<string>./node_modules/.bin/run-node index.js --type c</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -961,7 +961,7 @@ end run</string>
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js --type t --query "$1"</string>
+				<string>./node_modules/.bin/run-node index.js --type c --query "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
