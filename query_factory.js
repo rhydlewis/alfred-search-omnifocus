@@ -18,6 +18,7 @@ const PROJECT_SELECT = "p.pk AS id, t.name AS name, p.status AS status, p.number
 const PROJECT_FROM = "(ProjectInfo p LEFT JOIN Task t ON p.task=t.persistentIdentifier) LEFT JOIN Folder f ON p.folder=f.persistentIdentifier"
 const PROJECT_ORDER_BY = "p.containsSingletonActions DESC, t.name ASC"
 const FOLDER_SELECT = "persistentIdentifier AS id, name as name"
+const TAG_SELECT = "persistentIdentifier AS id, name AS name, allowsNextAction AS allows_next_action, availableTaskCount AS available_task_count"
 
 function generateSQL(s, f, w, o) {
     return `SELECT ${s} FROM ${f} WHERE ${w} ORDER BY ${o}`
@@ -70,5 +71,11 @@ export function searchFolders(query) {
     let whereClause = "(dateHidden is null AND effectiveDateHidden is null)"
     if (query) whereClause = whereClause + ` AND lower(name) LIKE lower('%${query}%')`
     let sql = generateSQL(FOLDER_SELECT, "Folder", whereClause, NAME_SORT)
+    return runQuery(sql)
+}
+
+export function searchTags(query) {
+    let sql = query === undefined ? `SELECT ${TAG_SELECT} FROM "Context" ORDER BY ${NAME_SORT}` :
+        generateSQL(TAG_SELECT, "Context", `lower(name) LIKE lower('%${query}%')`, NAME_SORT)
     return runQuery(sql)
 }

@@ -1,9 +1,9 @@
 'use strict';
 
 import alfy from 'alfy';
-import {searchTasks, searchProjects, searchFolders} from "./query_factory.js";
+import {searchTasks, searchProjects, searchFolders, searchTags} from "./query_factory.js";
 import {listPerspectives} from "./omnifocus.js";
-import {createTask, createProject, createFolder} from "./result_factory.js"
+import {createTask, createProject, createFolder, createTag} from "./result_factory.js"
 
 import yargs from 'yargs'
 import { hideBin } from "yargs/helpers";
@@ -20,6 +20,7 @@ const PERSPECTIVE = 'v'
 const TASK = 't'
 const PROJECT = 'p'
 const FOLDER = 'f'
+const TAG = 'c'
 
 function main() {
 	let results = undefined
@@ -36,8 +37,16 @@ function main() {
 		case FOLDER:
 			results = searchFolders(argv.query);
 			break;
+		case TAG:
+			results = searchTags(argv.query);
+			break;
 	}
-	if (results !== undefined) outputResults(results)
+
+	if (results !== undefined) {
+		outputResults(results)
+	} else {
+		alfy.error("Error in workflow")
+	}
 }
 
 function perspectiveQuery(query) {
@@ -71,6 +80,9 @@ function outputResults(results) {
 				break;
 			case FOLDER:
 				results.forEach(result => { items.push(createFolder(result)) })
+				break;
+			case TAG:
+				results.forEach(result => { items.push(createTag(result)) })
 				break;
 		}
 	}

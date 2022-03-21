@@ -8,9 +8,9 @@ const ON_HOLD_ICON = path.join(OF_ICON_ROOT, 'on-hold@2x.png')
 const ACTIVE_ICON = path.join(OF_ICON_ROOT, 'active-small@2x.png')
 const COMPLETED_ICON = path.join(OF_ICON_ROOT, 'completed@2x.png')
 const INBOX_ICON = path.join(OF_ICON_ROOT, 'inbox-sidebar@2x.png')
-const PERSPECTIVE_ICON = path.join(OF_ICON_ROOT, 'Perspectives@2x.png')
 const DEFERRED_ICON = path.join("./", 'deferred.png')
 const FOLDER_ICON = path.join(OF_ICON_ROOT, 'quickopen-folder@2x.png')
+const TAG_ICON = path.join(OF_ICON_ROOT, 'quickopen-folder@2x.png')
 
 const STATUS_ACTIVE = 'active'
 
@@ -88,6 +88,25 @@ export function createFolder(result) {
         },
         title: result["name"],
         subtitle: '',
+        arg: result["id"]
+    }
+}
+
+export function createTag(result) {
+    let iconPath = ACTIVE_ICON
+
+    let allowsNextAction = result["allows_next_action"]
+    let availableTasks = result["available_task_count"]
+    let subtitle = availableTasks === 1 ? "1 task available" : `${availableTasks} tasks available`
+
+    if (allowsNextAction === 0) iconPath = ON_HOLD_ICON
+
+    return {
+        icon: {
+            path: iconPath
+        },
+        title: result["name"],
+        subtitle: subtitle,
         arg: result["id"]
     }
 }
