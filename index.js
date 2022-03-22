@@ -26,7 +26,7 @@ const INBOX = 'i'
 
 function main() {
     if (alfy.userConfig.get('dbPath') === undefined) {
-        alfy.error("Please set the dbPath environment variable for this workflow - use find-of-db and set-of-db to do this")
+        alfy.error("'dbPath' missing - see find-of-db and set-of-db")
     } else {
         runWorkflow()
     }
