@@ -27,10 +27,7 @@ function generateSQL(s, f, w, o) {
 
 function runQuery(sql) {
     let dbPath = alfy.userConfig.get('dbPath');
-    if (dbPath === undefined) {
-        alfy.error("Please set the dbPath environment variable for this workflow - use find-of-db and set-of-db to do this")
-        // dbPath = "~/Library/Group Containers/34YW5XSRB7.com.omnigroup.OmniFocus/com.omnigroup.OmniFocus3.MacAppStore/com.omnigroup.OmniFocusModel/OmniFocusDatabase.db"
-    }
+    // dbPath = "~/Library/Group Containers/34YW5XSRB7.com.omnigroup.OmniFocus/com.omnigroup.OmniFocus3.MacAppStore/com.omnigroup.OmniFocusModel/OmniFocusDatabase.db"
 
     const db = new Database(dbPath, sqliteOptions);
 
