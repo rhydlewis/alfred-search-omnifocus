@@ -34,6 +34,32 @@
 				<false/>
 			</dict>
 		</array>
+		<key>15E5B220-E957-4FB1-9173-F3D78F4E0189</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>65F4D968-7CDC-49B0-A8C0-EE8AAFBAB7A6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>1F4BFA7E-CDAD-465C-A241-8EE7EE0E6256</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7EA6CE49-56EE-4F34-AC52-3F1733615B6B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2D9EA11D-2F55-4ACC-94DC-A2E2B4AD688E</key>
 		<array>
 			<dict>
@@ -83,6 +109,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>65F4D968-7CDC-49B0-A8C0-EE8AAFBAB7A6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7EA6CE49-56EE-4F34-AC52-3F1733615B6B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>8CA6BE82-70D4-49DE-B3DA-794C687C1C2C</key>
 		<array>
 			<dict>
@@ -111,6 +150,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>1CC4E6A6-490A-4BF2-B452-05E5231C9215</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>AE622C71-54B2-4808-B68F-39119A55896C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>15E5B220-E957-4FB1-9173-F3D78F4E0189</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -513,6 +565,68 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>set-of-db</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Tell this workflow where to find the OmniFocus database</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>AE622C71-54B2-4808-B68F-39119A55896C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	set bundleID to "net.rhydlewis.alfred.searchomnifocusjs"
+
+	tell application id "com.runningwithcrayons.Alfred"
+	    	set configuration "dbPath" to value q in workflow bundleID with exportable
+	end tell
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>65F4D968-7CDC-49B0-A8C0-EE8AAFBAB7A6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>dbPath</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>15E5B220-E957-4FB1-9173-F3D78F4E0189</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -607,6 +721,56 @@ end run</string>
 			<string>03694655-989F-4408-8087-C75389413F97</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>20</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>{var:dbPath}</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>7EA6CE49-56EE-4F34-AC52-3F1733615B6B</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>get-of-db</string>
+				<key>subtext</key>
+				<string>Ask this workflow where it thinks the OmniFocus database is</string>
+				<key>text</key>
+				<string>Locate OmniFocus database</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>1F4BFA7E-CDAD-465C-A241-8EE7EE0E6256</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1213,12 +1377,26 @@ end run</string>
 			<key>ypos</key>
 			<integer>715</integer>
 		</dict>
+		<key>15E5B220-E957-4FB1-9173-F3D78F4E0189</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1345</integer>
+			<key>ypos</key>
+			<integer>235</integer>
+		</dict>
 		<key>1CC4E6A6-490A-4BF2-B452-05E5231C9215</key>
 		<dict>
 			<key>xpos</key>
 			<integer>480</integer>
 			<key>ypos</key>
 			<integer>565</integer>
+		</dict>
+		<key>1F4BFA7E-CDAD-465C-A241-8EE7EE0E6256</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1170</integer>
+			<key>ypos</key>
+			<integer>340</integer>
 		</dict>
 		<key>2D9EA11D-2F55-4ACC-94DC-A2E2B4AD688E</key>
 		<dict>
@@ -1248,12 +1426,26 @@ end run</string>
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>
+		<key>65F4D968-7CDC-49B0-A8C0-EE8AAFBAB7A6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1420</integer>
+			<key>ypos</key>
+			<integer>210</integer>
+		</dict>
 		<key>66C8E165-20C1-4EA9-8CBC-7E0473321023</key>
 		<dict>
 			<key>xpos</key>
 			<integer>295</integer>
 			<key>ypos</key>
 			<integer>730</integer>
+		</dict>
+		<key>7EA6CE49-56EE-4F34-AC52-3F1733615B6B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1420</integer>
+			<key>ypos</key>
+			<integer>340</integer>
 		</dict>
 		<key>8CA6BE82-70D4-49DE-B3DA-794C687C1C2C</key>
 		<dict>
@@ -1268,6 +1460,13 @@ end run</string>
 			<integer>110</integer>
 			<key>ypos</key>
 			<integer>570</integer>
+		</dict>
+		<key>AE622C71-54B2-4808-B68F-39119A55896C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1165</integer>
+			<key>ypos</key>
+			<integer>205</integer>
 		</dict>
 		<key>AF31DD30-B70F-483D-B427-64E543F58063</key>
 		<dict>
@@ -1293,7 +1492,7 @@ end run</string>
 		<key>BB4FC8D8-F6D4-4DC4-96B5-BDA70ED995BA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>910</integer>
+			<integer>780</integer>
 			<key>ypos</key>
 			<integer>520</integer>
 		</dict>
@@ -1307,9 +1506,9 @@ end run</string>
 		<key>BCE00024-8328-4306-8496-DF60E8513483</key>
 		<dict>
 			<key>xpos</key>
-			<integer>910</integer>
+			<integer>780</integer>
 			<key>ypos</key>
-			<integer>630</integer>
+			<integer>650</integer>
 		</dict>
 		<key>C0A01936-F787-4644-837E-D594CC8BC9EA</key>
 		<dict>
@@ -1357,7 +1556,7 @@ end run</string>
 	<key>variables</key>
 	<dict>
 		<key>dbPath</key>
-		<string>/Users/rhyd/Library/Group\ Containers/34YW5XSRB7.com.omnigroup.OmniFocus/com.omnigroup.OmniFocus3.MacAppStore/com.omnigroup.OmniFocusModel/OmniFocusDatabase.db</string>
+		<string>~/Library/Group\ Containers/34YW5XSRB7.com.omnigroup.OmniFocus/com.omnigroup.OmniFocus3.MacAppStore/com.omnigroup.OmniFocusModel/OmniFocusDatabase.db</string>
 	</dict>
 	<key>version</key>
 	<string>1.0.0</string>
