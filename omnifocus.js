@@ -5,7 +5,6 @@ import path from 'path'
 
 const INBOX = 'Inbox'
 const PROJECTS = 'Projects'
-const CONTEXTS = 'Contexts'
 const TAGS = 'Tags'
 const FORECAST = 'Forecast'
 const FLAGGED = 'Flagged'
