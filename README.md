@@ -2,7 +2,11 @@
 
 ## What is this?
 
-This is a workflow for [Alfred](http://www.alfredapp.com/) that performs free text searches on [OmniFocus](http://www.omnigroup.com/omnifocus) data.
+This is a workflow for [Alfred](http://www.alfredapp.com/) that performs free text searches on [OmniFocus](http://www.omnigroup.com/omnifocus) data. 
+
+## Doesn't something like this already exist?
+
+Yes! This workflow is based on [the Search Omnifocus workflow](https://github.com/rhydlewis/search-omnifocus) which [no longer works](https://www.alfredapp.com/help/kb/python-2-monterey/) with the latest version of macOS. This is a rewrite in Javascript and uses [Alfy](https://github.com/sindresorhus/alfy) to do the heavy lifting.
 
 ## Why would I want such a thing?
 
