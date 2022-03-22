@@ -19,6 +19,7 @@ const PROJECT_FROM = "(ProjectInfo p LEFT JOIN Task t ON p.task=t.persistentIden
 const PROJECT_ORDER_BY = "p.containsSingletonActions DESC, t.name ASC"
 const FOLDER_SELECT = "persistentIdentifier AS id, name as name"
 const TAG_SELECT = "persistentIdentifier AS id, name AS name, allowsNextAction AS allows_next_action, availableTaskCount AS available_task_count"
+const INBOX_WHERE = "(t.effectiveInInbox = 1 OR t.inInbox = 1)"
 
 function generateSQL(s, f, w, o) {
     return `SELECT ${s} FROM ${f} WHERE ${w} ORDER BY ${o}`
@@ -77,5 +78,11 @@ export function searchFolders(query) {
 export function searchTags(query) {
     let sql = query === undefined ? `SELECT ${TAG_SELECT} FROM "Context" ORDER BY ${NAME_SORT}` :
         generateSQL(TAG_SELECT, "Context", `lower(name) LIKE lower('%${query}%')`, NAME_SORT)
+    return runQuery(sql)
+}
+
+export function searchInbox(query) {
+    let whereClause = query === undefined ? INBOX_WHERE : (OPEN_TASK_LIKE + query + LIKE_SUFFIX + INBOX_WHERE)
+    let sql = generateSQL(TASK_SELECT, TASK_FROM, whereClause, "t." + NAME_SORT)
     return runQuery(sql)
 }

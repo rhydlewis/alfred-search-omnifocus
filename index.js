@@ -1,7 +1,7 @@
 'use strict';
 
 import alfy from 'alfy';
-import {searchTasks, searchProjects, searchFolders, searchTags} from "./query_factory.js";
+import {searchTasks, searchProjects, searchFolders, searchTags, searchInbox} from "./query_factory.js";
 import {listPerspectives} from "./omnifocus.js";
 import {createTask, createProject, createFolder, createTag} from "./result_factory.js"
 
@@ -21,6 +21,7 @@ const TASK = 't'
 const PROJECT = 'p'
 const FOLDER = 'f'
 const TAG = 'c'
+const INBOX = 'i'
 
 function main() {
 	let results = undefined
@@ -39,6 +40,9 @@ function main() {
 			break;
 		case TAG:
 			results = searchTags(argv.query);
+			break;
+		case INBOX:
+			results = searchInbox(argv.query);
 			break;
 	}
 
@@ -72,9 +76,6 @@ function outputResults(results) {
 	if (results !== null && results.length > 0) {
 		items = []
 		switch (argv.type) {
-			case TASK:
-				results.forEach(result => { items.push(createTask(result)) })
-				break;
 			case PROJECT:
 				results.forEach(result => { items.push(createProject(result)) })
 				break;
@@ -84,6 +85,8 @@ function outputResults(results) {
 			case TAG:
 				results.forEach(result => { items.push(createTag(result)) })
 				break;
+			default: // Search task, search inbox
+				results.forEach(result => { items.push(createTask(result)) })
 		}
 	}
 
