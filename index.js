@@ -1,7 +1,7 @@
 'use strict';
 
 import alfy from 'alfy';
-import {searchTasks, searchProjects, searchFolders, searchTags, searchInbox} from "./query_factory.js";
+import {searchTasks, searchProjects, searchFolders, searchTags, searchInbox, QueryException} from "./query_factory.js";
 import {listPerspectives} from "./omnifocus.js";
 import {createTask, createProject, createFolder, createTag} from "./result_factory.js"
 
@@ -34,25 +34,30 @@ function main() {
 
 function runWorkflow() {
     let results = undefined
-    switch (argv.type) {
-        case PERSPECTIVE:
-            perspectiveQuery(argv.query);
-            break;
-        case TASK:
-            results = searchTasks(argv.query, argv.completedOnly, argv.flaggedOnly, argv.activeOnly, argv.everything);
-            break;
-        case PROJECT:
-            results = searchProjects(argv.query, argv.activeOnly);
-            break;
-        case FOLDER:
-            results = searchFolders(argv.query);
-            break;
-        case TAG:
-            results = searchTags(argv.query);
-            break;
-        case INBOX:
-            results = searchInbox(argv.query);
-            break;
+    try {
+        switch (argv.type) {
+            case PERSPECTIVE:
+                perspectiveQuery(argv.query);
+                break;
+            case TASK:
+                results = searchTasks(argv.query, argv.completedOnly, argv.flaggedOnly, argv.activeOnly, argv.everything);
+                break;
+            case PROJECT:
+                results = searchProjects(argv.query, argv.activeOnly);
+                break;
+            case FOLDER:
+                results = searchFolders(argv.query);
+                break;
+            case TAG:
+                results = searchTags(argv.query);
+                break;
+            case INBOX:
+                results = searchInbox(argv.query);
+                break;
+        }
+    }
+    catch (e) {
+        alfy.error(e)
     }
 
     if (results !== undefined) {

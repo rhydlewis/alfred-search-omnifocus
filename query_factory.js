@@ -21,15 +21,23 @@ const FOLDER_SELECT = "persistentIdentifier AS id, name as name"
 const TAG_SELECT = "persistentIdentifier AS id, name AS name, allowsNextAction AS allows_next_action, availableTaskCount AS available_task_count"
 const INBOX_WHERE = "(t.effectiveInInbox = 1 OR t.inInbox = 1)"
 
+export function QueryException(message, sql, path) {
+    this.message = message
+    this.sql = sql
+    this.path = path
+    this.name = 'QueryException'
+}
+
 function generateSQL(s, f, w, o) {
     return `SELECT ${s} FROM ${f} WHERE ${w} ORDER BY ${o}`
 }
 
 function runQuery(sql) {
+    let db = null
     let dbPath = alfy.config.get('dbPath');
-    const db = new Database(dbPath, sqliteOptions);
 
     try {
+        db = new Database(dbPath, sqliteOptions);
         // alfy.log(`Running ${sql}`)
         const stmt = db.prepare(sql)
         const results = stmt.all()
@@ -37,10 +45,10 @@ function runQuery(sql) {
         return results
     }
     catch (err) {
-        alfy.error(err)
+        throw new QueryException(`Error when connecting to or running query (${err.message})`, sql, dbPath)
     }
     finally {
-        db.close()
+        if (db !== null) db.close()
     }
 }
 
