@@ -26,7 +26,7 @@ const INBOX = 'i'
 
 function main() {
     if (alfy.config.get('dbPath') === undefined) {
-        alfy.error("'dbPath' missing - see get-of-db and set-of-db")
+        alfy.output(createError("'dbPath' is missing", "Use get-of-db and set-of-db keywords"))
     } else {
         runWorkflow()
     }
@@ -55,16 +55,17 @@ function runWorkflow() {
                 results = searchInbox(argv.query);
                 break;
         }
+
+        if (results !== undefined) {
+            outputResults(results)
+        } else {
+            alfy.error("Error in workflow")
+        }
     }
     catch (e) {
-        alfy.error(e)
+        alfy.output(createError(e.message, e.context))
     }
 
-    if (results !== undefined) {
-        outputResults(results)
-    } else {
-        alfy.error("Error in workflow")
-    }
 }
 
 function perspectiveQuery(query) {
@@ -112,6 +113,17 @@ function outputResults(results) {
     }
 
     alfy.output(items)
+}
+
+function createError(title, subtitle) {
+    return [{
+        icon: {
+            path: "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertStopIcon.icns"
+        },
+        title: title,
+        subtitle: subtitle
+    }]
+
 }
 
 main()

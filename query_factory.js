@@ -21,10 +21,9 @@ const FOLDER_SELECT = "persistentIdentifier AS id, name as name"
 const TAG_SELECT = "persistentIdentifier AS id, name AS name, allowsNextAction AS allows_next_action, availableTaskCount AS available_task_count"
 const INBOX_WHERE = "(t.effectiveInInbox = 1 OR t.inInbox = 1)"
 
-export function QueryException(message, sql, path) {
+export function QueryException(message, context) {
     this.message = message
-    this.sql = sql
-    this.path = path
+    this.context = context
     this.name = 'QueryException'
 }
 
@@ -34,18 +33,20 @@ function generateSQL(s, f, w, o) {
 
 function runQuery(sql) {
     let db = null
-    let dbPath = alfy.config.get('dbPath');
+    const dbPath = alfy.config.get('dbPath');
 
     try {
         db = new Database(dbPath, sqliteOptions);
-        // alfy.log(`Running ${sql}`)
-        const stmt = db.prepare(sql)
-        const results = stmt.all()
-        // alfy.log(`Found ${results.length} results`)
-        return results
     }
     catch (err) {
-        throw new QueryException(`Error when connecting to or running query (${err.message})`, sql, dbPath)
+        throw new QueryException(`Unable to connect to OmniFocus database (${err.message})`, dbPath)
+    }
+
+    try {
+        return db.prepare(sql).all()
+    }
+    catch (err) {
+        throw new QueryException(`Error running query (${err.message})`, sql)
     }
     finally {
         if (db !== null) db.close()
