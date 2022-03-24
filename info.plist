@@ -47,6 +47,29 @@
 				<false/>
 			</dict>
 		</array>
+		<key>238D6AB7-DE52-496C-A067-A680D1B0ED6F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7EA6CE49-56EE-4F34-AC52-3F1733615B6B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>4E950577-2607-4DC5-84B4-31FBA6FBE23C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2D9EA11D-2F55-4ACC-94DC-A2E2B4AD688E</key>
 		<array>
 			<dict>
@@ -111,6 +134,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>BC837ED6-5034-4F5E-8B14-38666F4DD559</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5E50B8E5-4666-43D2-AA43-40943F4126C6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>238D6AB7-DE52-496C-A067-A680D1B0ED6F</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -966,6 +1002,50 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>find ~/Library/Group\ Containers/ -name "*OmniFocusDatabase.db" | tr -d '\n'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>238D6AB7-DE52-496C-A067-A680D1B0ED6F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>find-of-db</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Find the OmniFocus DB</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>5E50B8E5-4666-43D2-AA43-40943F4126C6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -1435,6 +1515,13 @@ end run</string>
 			<key>ypos</key>
 			<integer>350</integer>
 		</dict>
+		<key>238D6AB7-DE52-496C-A067-A680D1B0ED6F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1250</integer>
+			<key>ypos</key>
+			<integer>470</integer>
+		</dict>
 		<key>2D9EA11D-2F55-4ACC-94DC-A2E2B4AD688E</key>
 		<dict>
 			<key>xpos</key>
@@ -1469,6 +1556,13 @@ end run</string>
 			<integer>635</integer>
 			<key>ypos</key>
 			<integer>45</integer>
+		</dict>
+		<key>5E50B8E5-4666-43D2-AA43-40943F4126C6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1085</integer>
+			<key>ypos</key>
+			<integer>470</integer>
 		</dict>
 		<key>5FA1E69D-11B2-4CFC-ACB8-9331C665E149</key>
 		<dict>
