@@ -65,7 +65,6 @@ function runWorkflow() {
     catch (e) {
         alfy.output(createError(e.message, e.context))
     }
-
 }
 
 function perspectiveQuery(query) {
@@ -123,7 +122,6 @@ function createError(title, subtitle) {
         title: title,
         subtitle: subtitle
     }]
-
 }
 
 main()

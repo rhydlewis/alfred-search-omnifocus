@@ -1,19 +1,25 @@
 {
-  "name": "search-omnifocus-js",
+  "name": "alfred-search-omnifocus",
   "version": "1.0.0",
   "licence": "MIT",
-  "description": "",
+  "description": "This is a workflow for Alfred that performs free text searches on OmniFocus data",
   "engines": {
     "node": ">=4"
   },
   "files": [
     "index.js",
-    "query_factory.js",
+    "deferred.png",
     "icon.png",
-    "info.plist"
+    "info.plist",
+    "omnifocus.js",
+    "query_factory.js",
+    "README.md",
+    "result_factory.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
   },
   "type": "module",
   "author": "",
