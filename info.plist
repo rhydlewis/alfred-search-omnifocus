@@ -388,7 +388,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,lv</string>
+				<string>.lv</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -418,55 +418,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>4F1E36A8-A787-4FE7-9CE1-1CAB5F24717C</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>,t</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node query_factory.js "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>Test</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>EF619DDA-8AD0-4F41-A4AE-9FD9437F337E</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -517,7 +468,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,s</string>
+				<string>.s</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -585,7 +536,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,v</string>
+				<string>.v</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -634,7 +585,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,sc</string>
+				<string>.sc</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -756,7 +707,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,sa</string>
+				<string>.sa</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -868,7 +819,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,p</string>
+				<string>.p</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -917,7 +868,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,pa</string>
+				<string>.pa</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -966,7 +917,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,g</string>
+				<string>.g</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1007,7 +958,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>find ~/Library/Group\ Containers/ -name "*OmniFocusDatabase.db" | tr -d '\n'</string>
+				<string>find ~/Library/Group\ Containers -name "*OmniFocusDatabase.db"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1059,7 +1010,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,li</string>
+				<string>.li</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1127,7 +1078,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,ga</string>
+				<string>.ga</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1176,7 +1127,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,i</string>
+				<string>.i</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1225,7 +1176,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,lt</string>
+				<string>.lt</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1293,7 +1244,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,lf</string>
+				<string>.lf</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1361,7 +1312,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,t</string>
+				<string>.t</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1410,7 +1361,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>,f</string>
+				<string>.f</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -1683,13 +1634,6 @@ end run</string>
 			<key>ypos</key>
 			<integer>860</integer>
 		</dict>
-		<key>EF619DDA-8AD0-4F41-A4AE-9FD9437F337E</key>
-		<dict>
-			<key>xpos</key>
-			<integer>975</integer>
-			<key>ypos</key>
-			<integer>55</integer>
-		</dict>
 		<key>F3536ACD-D122-4524-B8C3-186DC09DB878</key>
 		<dict>
 			<key>xpos</key>
@@ -1697,11 +1641,6 @@ end run</string>
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>
-	</dict>
-	<key>variables</key>
-	<dict>
-		<key>dbPath</key>
-		<string>~/Library/Group\ Containers/34YW5XSRB7.com.omnigroup.OmniFocus/com.omnigroup.OmniFocus3.MacAppStore/com.omnigroup.OmniFocusModel/OmniFocusDatabase.db</string>
 	</dict>
 	<key>version</key>
 	<string>1.0.0</string>
