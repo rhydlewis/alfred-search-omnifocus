@@ -58,8 +58,6 @@ function runWorkflow() {
 
         if (results !== undefined) {
             outputResults(results)
-        } else {
-            alfy.error("Error in workflow")
         }
     }
     catch (e) {

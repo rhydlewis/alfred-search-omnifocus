@@ -2,6 +2,7 @@
 
 import applescript from 'applescript';
 import path from 'path'
+import alfy from "alfy";
 
 const INBOX = 'Inbox'
 const PROJECTS = 'Projects'
@@ -23,8 +24,6 @@ const PERSPECTIVE_SEARCH_SCRIPT = `tell application "OmniFocus"
     return every perspective's name
   end try
 end tell`
-
-const LOCATION_SCRIPT = `tell application "Finder" to get (POSIX path of (path to application "OmniFocus"))`
 
 export async function listPerspectives() {
     const result = await runScript(PERSPECTIVE_SEARCH_SCRIPT)
@@ -50,10 +49,10 @@ function runScript(script) {
 
 function createPerspective(name) {
     let iconPath = PERSPECTIVE_ICON
-    let perspective_type = 'Custom'
+    let perspectiveType = 'Custom'
     if (DEFAULT_PERSPECTIVES.includes(name)) {
         iconPath = DEFAULT_PERSPECTIVE_ICON
-        perspective_type = 'Default'
+        perspectiveType = 'Default'
     }
 
     return {
@@ -62,6 +61,6 @@ function createPerspective(name) {
         icon: {
             path: iconPath
         },
-        subtitle: `Omnifocus ${perspective_type} Perspective`
+        subtitle: `Omnifocus ${perspectiveType} Perspective`
     }
 }
