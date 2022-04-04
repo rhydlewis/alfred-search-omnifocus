@@ -1,7 +1,7 @@
 'use strict';
 
 import alfy from 'alfy';
-import {searchTasks, searchProjects, searchFolders, searchTags, searchInbox, QueryException} from "./query_factory.js";
+import {searchTasks, searchProjects, searchFolders, searchTags, searchInbox, searchNotes} from "./query_factory.js";
 import {listPerspectives} from "./omnifocus.js";
 import {createTask, createProject, createFolder, createTag} from "./result_factory.js"
 
@@ -23,6 +23,7 @@ const PROJECT = 'p'
 const FOLDER = 'f'
 const TAG = 'c'
 const INBOX = 'i'
+const NOTE = 'n'
 
 function main() {
     if (alfy.config.get('dbPath') === undefined) {
@@ -53,6 +54,9 @@ function runWorkflow() {
                 break;
             case INBOX:
                 results = searchInbox(argv.query);
+                break;
+            case NOTE:
+                results = searchNotes(argv.query, argv.activeOnly, argv.flaggedOnly);
                 break;
         }
 

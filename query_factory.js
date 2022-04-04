@@ -91,3 +91,14 @@ export function searchInbox(query) {
     let sql = generateSQL(TASK_SELECT, TASK_FROM, whereClause, "t." + NAME_SORT)
     return runQuery(sql)
 }
+
+export function searchNotes(query, activeOnly=null, flagged = null) {
+    let selectNote = TASK_SELECT + ", t.plainTextNote"
+    let whereClause = `t.dateCompleted IS NULL AND lower(t.plainTextNote) LIKE lower('%${query}%')`
+
+    if (activeOnly) whereClause = whereClause + " AND (t.blocked = 0 AND t.blockedByFutureStartDate = 0)"
+    if (flagged) whereClause = whereClause + " AND (t.flagged = 1 OR t.effectiveFlagged = 1)"
+
+    let sql =  generateSQL(selectNote, TASK_FROM, whereClause, "t." + NAME_SORT)
+    return runQuery(sql)
+}
