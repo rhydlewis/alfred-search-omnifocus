@@ -2,19 +2,37 @@
 
 ## What is this?
 
-This is a workflow for [Alfred](http://www.alfredapp.com/) that performs free text searches on [OmniFocus](http://www.omnigroup.com/omnifocus) data. 
+This is a workflow for [Alfred](http://www.alfredapp.com/) that performs free text searches
+on [OmniFocus](http://www.omnigroup.com/omnifocus) data.
 
 ## Doesn't something like this already exist?
 
-Yes! This workflow is based on [the Search Omnifocus workflow](https://github.com/rhydlewis/search-omnifocus) which [no longer works](https://www.alfredapp.com/help/kb/python-2-monterey/) with the latest version of macOS. This is a rewrite in Javascript and uses [Alfy](https://github.com/sindresorhus/alfy) to do the heavy lifting.
+Yes! This workflow is based on [the Search Omnifocus workflow](https://github.com/rhydlewis/search-omnifocus)
+which [no longer works](https://www.alfredapp.com/help/kb/python-2-monterey/) with the latest version of macOS. This is
+a rewrite in Javascript and uses [Alfy](https://github.com/sindresorhus/alfy) to do the heavy lifting.
 
 ## Why would I want such a thing?
 
-Well, I want it because I can't quickly search for, say, a task within OmniFocus using OmniFocus' search field. OmniFocus restricts search results to the current perspective or selection. [Other people have noticed this too](https://discourse.omnigroup.com/t/how-to-search-all-content-a-via-changed-perspective/366).
+Well, I want it because I can't quickly search for, say, a task within OmniFocus using OmniFocus' search field.
+OmniFocus restricts search results to the current perspective or
+selection. [Other people have noticed this too](https://discourse.omnigroup.com/t/how-to-search-all-content-a-via-changed-perspective/366)
+.
 
 ## How to install
 
-[Download the `.workflow` file from the Releases page](https://github.com/rhydlewis/search-omnifocus/releases/).
+**Pre-requisites**
+
+This workflow relies on Node.js.
+Follow [these instructions to install](https://treehouse.github.io/installation-guides/mac/node-mac.html).
+
+1. Install the workflow using `npm`
+
+```npm install --global alfred-search-omnifocus```
+
+2. Open Alfred Preferences (`alf`) and - if you have the old version of the workflow installed - disable the existing
+   workflow "Search Omnifocus" by right clicking on it and unchecking Enabled
+3. Run Alfred command `find-of-db` to copy the path of the Omnifocus DB to your clipboard
+4. Run Alfred command `set-of-db` and then paste (⌘-V) the database path as an argument
 
 ## How to use
 
@@ -110,7 +128,7 @@ or for *flagged* and *active* tasks with `.ga`:
 
 ![](./images/search-for-flagged-active-tasks.png)
 
-* Show the 10 most recently modified tasks with `.r`:
+* **Not supported yet** Show the 10 most recently modified tasks with `.r`:
 
 ![](./images/show-recent-tasks.png)
 
@@ -118,13 +136,16 @@ or show the 10 most recently modfified and non-completed tasks or projects with 
 
 ![](./images/show-recent-active-tasks.png)
 
-* Show overdue or due items with `.d`:
+* **Not supported yet** Show overdue or due items with `.d`:
 
 ![](./images/overdue-tasks.png)
 
 ## Thanks to...
 
-* [Sindre Sorhus](https://github.com/sindresorhus): for providing [Alfy, the JS library for Alfred workflows](https://github.com/sindresorhus/alfy)
-* [Marko Kaestner](https://github.com/markokaestner): I used the [in-depth workflow](https://github.com/markokaestner/of-task-actions) to provide some insight into how to search Omnifocus.
+* [Sindre Sorhus](https://github.com/sindresorhus): for
+  providing [Alfy, the JS library for Alfred workflows](https://github.com/sindresorhus/alfy)
+* [Marko Kaestner](https://github.com/markokaestner): I used
+  the [in-depth workflow](https://github.com/markokaestner/of-task-actions) to provide some insight into how to search
+  Omnifocus.
 * [Danny Smith](https://github.com/dannysmith): for providing a new, and quite frankly, much improved workflow icon.
 
