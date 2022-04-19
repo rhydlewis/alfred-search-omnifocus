@@ -25,6 +25,9 @@ const TAG = 'c'
 const INBOX = 'i'
 const NOTE = 'n'
 
+const SINGLE_QUOTE = "'"
+const ESC_SINGLE_QUOTE = "''"
+
 function main() {
     if (alfy.config.get('dbPath') === undefined) {
         alfy.output(createError("'dbPath' is missing", "Use get-of-db and set-of-db keywords"))
@@ -35,28 +38,33 @@ function main() {
 
 function runWorkflow() {
     let results = undefined
+    let query = argv.query
+    if (query.includes(SINGLE_QUOTE)) {
+        query = query.replaceAll(SINGLE_QUOTE, ESC_SINGLE_QUOTE)
+    }
+
     try {
         switch (argv.type) {
             case PERSPECTIVE:
-                perspectiveQuery(argv.query);
+                perspectiveQuery(query);
                 break;
             case TASK:
-                results = searchTasks(argv.query, argv.completedOnly, argv.flaggedOnly, argv.activeOnly, argv.everything);
+                results = searchTasks(query, argv.completedOnly, argv.flaggedOnly, argv.activeOnly, argv.everything);
                 break;
             case PROJECT:
-                results = searchProjects(argv.query, argv.activeOnly);
+                results = searchProjects(query, argv.activeOnly);
                 break;
             case FOLDER:
-                results = searchFolders(argv.query);
+                results = searchFolders(query);
                 break;
             case TAG:
-                results = searchTags(argv.query);
+                results = searchTags(query);
                 break;
             case INBOX:
-                results = searchInbox(argv.query);
+                results = searchInbox(query);
                 break;
             case NOTE:
-                results = searchNotes(argv.query, argv.activeOnly, argv.flaggedOnly);
+                results = searchNotes(query, argv.activeOnly, argv.flaggedOnly);
                 break;
         }
 
