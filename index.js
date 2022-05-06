@@ -24,7 +24,6 @@ const FOLDER = 'f'
 const TAG = 'c'
 const INBOX = 'i'
 const NOTE = 'n'
-
 const SINGLE_QUOTE = "'"
 const ESC_SINGLE_QUOTE = "''"
 
@@ -39,7 +38,7 @@ function main() {
 function runWorkflow() {
     let results = undefined
     let query = argv.query
-    if (query.includes(SINGLE_QUOTE)) {
+    if (query !== undefined && query.includes(SINGLE_QUOTE)) {
         query = query.replaceAll(SINGLE_QUOTE, ESC_SINGLE_QUOTE)
     }
 
