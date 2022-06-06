@@ -181,6 +181,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>92A56296-2587-477D-918F-6BC8DD75B940</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1CC4E6A6-490A-4BF2-B452-05E5231C9215</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>9A7C4959-0B53-43E0-8D17-9B89253377C4</key>
 		<array>
 			<dict>
@@ -1207,6 +1220,55 @@ end run</string>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>.se</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node index.js --type t --everything --query "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search OmniFocus inbox and tasks for "{query}"</string>
+				<key>title</key>
+				<string>Search OmniFocus for processed and inbox tasks</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>92A56296-2587-477D-918F-6BC8DD75B940</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
 				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
@@ -1245,74 +1307,6 @@ end run</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>1191516D-C684-4806-A2B4-C0730DCA0185</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>omnifocus:///folder/{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>66C8E165-20C1-4EA9-8CBC-7E0473321023</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>.lf</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>1</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Searching...</string>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js --type f</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>List all folders in OmniFocus</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>2D9EA11D-2F55-4ACC-94DC-A2E2B4AD688E</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -1381,6 +1375,74 @@ end run</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>B4C16BEE-8C76-4E0F-94C9-3B4A4600E3DC</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>omnifocus:///folder/{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>66C8E165-20C1-4EA9-8CBC-7E0473321023</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>.lf</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node index.js --type f</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>List all folders in OmniFocus</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>2D9EA11D-2F55-4ACC-94DC-A2E2B4AD688E</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -1662,16 +1724,16 @@ end run</string>
 		<key>2D9EA11D-2F55-4ACC-94DC-A2E2B4AD688E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>105</integer>
+			<integer>110</integer>
 			<key>ypos</key>
-			<integer>730</integer>
+			<integer>890</integer>
 		</dict>
 		<key>32B15825-A6A7-4166-BFE5-BF9340A1C611</key>
 		<dict>
 			<key>xpos</key>
-			<integer>135</integer>
+			<integer>140</integer>
 			<key>ypos</key>
-			<integer>1410</integer>
+			<integer>1570</integer>
 		</dict>
 		<key>36D6C5C1-6B7C-4286-88DC-7A992F5441CF</key>
 		<dict>
@@ -1718,9 +1780,9 @@ end run</string>
 		<key>66C8E165-20C1-4EA9-8CBC-7E0473321023</key>
 		<dict>
 			<key>xpos</key>
-			<integer>295</integer>
+			<integer>300</integer>
 			<key>ypos</key>
-			<integer>730</integer>
+			<integer>890</integer>
 		</dict>
 		<key>7EA6CE49-56EE-4F34-AC52-3F1733615B6B</key>
 		<dict>
@@ -1735,6 +1797,13 @@ end run</string>
 			<integer>110</integer>
 			<key>ypos</key>
 			<integer>190</integer>
+		</dict>
+		<key>92A56296-2587-477D-918F-6BC8DD75B940</key>
+		<dict>
+			<key>xpos</key>
+			<integer>105</integer>
+			<key>ypos</key>
+			<integer>710</integer>
 		</dict>
 		<key>9A7C4959-0B53-43E0-8D17-9B89253377C4</key>
 		<dict>
@@ -1802,9 +1871,9 @@ end run</string>
 		<key>C0A01936-F787-4644-837E-D594CC8BC9EA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>105</integer>
+			<integer>110</integer>
 			<key>ypos</key>
-			<integer>840</integer>
+			<integer>1000</integer>
 		</dict>
 		<key>C6CAEE8E-F6B3-487C-9692-C9CF62DC1091</key>
 		<dict>
@@ -1823,16 +1892,16 @@ end run</string>
 		<key>D3F4E31B-F5F0-495E-9EE0-2AE1A93B58D3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>140</integer>
+			<integer>145</integer>
 			<key>ypos</key>
-			<integer>1145</integer>
+			<integer>1305</integer>
 		</dict>
 		<key>E9B0D347-9876-4011-8091-37FA9FB5165D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>295</integer>
+			<integer>300</integer>
 			<key>ypos</key>
-			<integer>860</integer>
+			<integer>1020</integer>
 		</dict>
 		<key>F3536ACD-D122-4524-B8C3-186DC09DB878</key>
 		<dict>
@@ -1844,13 +1913,13 @@ end run</string>
 		<key>FC280AF9-A22D-4414-B5A6-C2CC71E1BD9D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>125</integer>
+			<integer>130</integer>
 			<key>ypos</key>
-			<integer>1275</integer>
+			<integer>1435</integer>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>1.0.2</string>
+	<string>1.0.6</string>
 	<key>webaddress</key>
 	<string>https://github.com/rhydlewis/alfred-search-omnifocus</string>
 </dict>
