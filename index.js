@@ -37,9 +37,12 @@ function main() {
 
 function runWorkflow() {
     let results = undefined
-    let query = '' + argv.query // Fix for a numerical query since following line fails when running .includes
-    if (query !== undefined && query.includes(SINGLE_QUOTE)) {
-        query = query.replaceAll(SINGLE_QUOTE, ESC_SINGLE_QUOTE)
+    let query = argv.query
+    if (query !== undefined) {
+        query = '' + argv.query // Fix for a numerical query since following test fails when running .includes
+        if (query.includes(SINGLE_QUOTE)) {
+            query = query.replaceAll(SINGLE_QUOTE, ESC_SINGLE_QUOTE)
+        }
     }
 
     try {
@@ -77,7 +80,7 @@ function runWorkflow() {
 }
 
 function perspectiveQuery(query) {
-    if (query) {
+    if (query !== undefined) {
         listPerspectives().then(perspectives => {
             alfy.output(perspectives.filter(function (item) {
                 if (item.title.toLowerCase().indexOf(argv.query.toLowerCase()) >= 0) {

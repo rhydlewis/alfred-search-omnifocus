@@ -1,6 +1,6 @@
 {
   "name": "alfred-search-omnifocus",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "licence": "MIT",
   "description": "This is a workflow for Alfred that performs free text searches on OmniFocus data",
   "engines": {
