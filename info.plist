@@ -1010,7 +1010,8 @@ end run</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>find ~/Library/Group\ Containers -name "*OmniFocusDatabase.db"</string>
+				<string>result=$(find ~/Library/Group\ Containers -name "*OmniFocusDatabase.db")
+echo -n $result</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1919,7 +1920,7 @@ end run</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>1.0.6</string>
+	<string>1.0.9</string>
 	<key>webaddress</key>
 	<string>https://github.com/rhydlewis/alfred-search-omnifocus</string>
 </dict>
