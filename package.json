@@ -13,6 +13,7 @@
     "icon.png",
     "images/*",
     "info.plist",
+    "info-alfred4.plist",
     "omnifocus.js",
     "query_factory.js",
     "README.md",
