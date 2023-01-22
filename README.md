@@ -27,18 +27,40 @@ Follow [these instructions to install](https://treehouse.github.io/installation-
 
 1. Install the workflow using `npm`
 
-```npm install --global alfred-search-omnifocus```
+    `npm install --global alfred-search-omnifocus`
 
 2. Open Alfred Preferences (`alf`) and - if you have the old version of the workflow installed - disable the existing
    workflow "Search Omnifocus" by right clicking on it and unchecking Enabled
 3. Run Alfred command `find-of-db` to copy the path of the Omnifocus DB to your clipboard
 4. Run Alfred command `set-of-db` and then paste (⌘-V) the database path as an argument
 
+> Note, if you're using `zsh`, `fish` or another shell, type `bash` before step 1 to ensure that you install the workflow using the system node.js installation
+
+## Troubleshooting
+
+> I'm seeing errors in the Alfred log related to NODE_MODULE_VERSION or better-sqlite3?
+
+Yes, this has been a pain to resolve. Try this to fix:
+
+1. Open Alfred preferences
+2. Right click on the **Search OmniFocus JS workflow** and choose **Open in Terminal**
+3. Check that you're using the correct version of node as used by Alfred (as of writing `v18.12.1`)
+    `bash`
+    `node -v`
+4. In your Terminal app - _in the Alfred workflow folder opened in the step before!_ - remove the `node_modules` folder then install the correct packages for your environment by following these commands:
+    `rm -rf node_modules/`
+    `npm install`
+4. Then retry the worfklow
+
+> Hang on? Why do I have to type `bash`?
+
+Alfred runs the workflow runs from the macOS installed version of bash (/bin/bash) so the workflow version of node.js expects packages that the workflow depends on to be built for the macOS version of node.
+
 ## How to use
 
 ## Note
 
-This workflow only works with OmniFocus 3.
+This workflow only works with OmniFocus 3 (it also works with the OmniFocus 4 currently in TestFlight).
 
 ### Searching for tasks
 
