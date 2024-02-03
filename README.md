@@ -60,7 +60,7 @@ Alfred runs the workflow runs from the macOS installed version of bash (/bin/bas
 
 ## Note
 
-This workflow only works with OmniFocus 3 (it also works with the OmniFocus 4 currently in TestFlight).
+This workflow only works with OmniFocus 3 and OmniFocus 4.
 
 ### Searching for tasks
 
