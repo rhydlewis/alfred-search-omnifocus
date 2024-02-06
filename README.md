@@ -52,6 +52,9 @@ Yes, this has been a pain to resolve. Try this to fix:
     `npm install`
 4. Then retry the worfklow
 
+It has also been reported that installing Xcode can resolve this issue.
+
+
 > Hang on? Why do I have to type `bash`?
 
 Alfred runs the workflow runs from the macOS installed version of bash (/bin/bash) so the workflow version of node.js expects packages that the workflow depends on to be built for the macOS version of node.
