@@ -31,7 +31,7 @@ Follow [these instructions to install](https://treehouse.github.io/installation-
 
 2. Open Alfred Preferences (`alf`) and - if you have the old version of the workflow installed - disable the existing
    workflow "Search Omnifocus" by right clicking on it and unchecking Enabled
-3. Run Alfred command `find-of-db` to copy the path of the Omnifocus DB to your clipboard
+3. Run Alfred command `find-of-db` to copy the path of the Omnifocus database to your clipboard. If you have both Omnifocus 3 and Omnifocus 4 installed you will get both paths on your clipboard, and you need to paste the paths somewhere and choose which one you want.
 4. Run Alfred command `set-of-db` and then paste (⌘-V) the database path as an argument
 
 > Note, if you're using `zsh`, `fish` or another shell, type `bash` before step 1 to ensure that you install the workflow using the system node.js installation
