@@ -1,16 +1,6 @@
-import path from 'path'
-import {OF_ICON_ROOT} from "./omnifocus.js"
 import {parseISO} from "date-fns";
 
-const DROPPED_ICON = path.join(OF_ICON_ROOT, 'dropped@2x.png')
-const FLAGGED_ICON = path.join(OF_ICON_ROOT, 'flagged@2x.png')
-const ON_HOLD_ICON = path.join(OF_ICON_ROOT, 'on-hold@2x.png')
-const ACTIVE_ICON = path.join(OF_ICON_ROOT, 'active-small@2x.png')
-const COMPLETED_ICON = path.join(OF_ICON_ROOT, 'completed@2x.png')
-const INBOX_ICON = path.join(OF_ICON_ROOT, 'inbox-sidebar@2x.png')
-const DEFERRED_ICON = path.join("./", 'deferred.png')
-const FOLDER_ICON = path.join(OF_ICON_ROOT, 'quickopen-folder@2x.png')
-const TAG_ICON = path.join(OF_ICON_ROOT, 'quickopen-folder@2x.png')
+import {ACTIVE_ICON, COMPLETED_ICON, INBOX_ICON, ON_HOLD_ICON, DEFERRED_ICON, DROPPED_ICON, FOLDER_ICON} from "./constants.js"
 
 const STATUS_ACTIVE = 'active'
 

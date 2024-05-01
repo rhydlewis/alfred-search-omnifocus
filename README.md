@@ -173,4 +173,4 @@ or show the 10 most recently modfified and non-completed tasks or projects with 
   the [in-depth workflow](https://github.com/markokaestner/of-task-actions) to provide some insight into how to search
   Omnifocus.
 * [Danny Smith](https://github.com/dannysmith): for providing a new, and quite frankly, much improved workflow icon.
-
+* [Font Awesome](https://fontawesome.com/): for the other icons used in this workflow

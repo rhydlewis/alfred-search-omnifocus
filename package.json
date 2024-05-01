@@ -1,6 +1,6 @@
 {
   "name": "alfred-search-omnifocus",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "licence": "MIT",
   "description": "This is a workflow for Alfred that performs free text searches on OmniFocus data",
   "engines": {
@@ -33,10 +33,10 @@
   },
   "homepage": "https://github.com/rhydlewis/alfred-search-omnifocus",
   "dependencies": {
-    "alfy": "^1.1.0",
+    "alfy": "^2.0.0",
     "applescript": "^1.0.0",
-    "better-sqlite3": "^8.0.1",
-    "date-fns": "^2.29.3",
+    "better-sqlite3": "^9.6.0",
+    "date-fns": "^3.6.0",
     "yargs": "^17.6.2"
   }
 }

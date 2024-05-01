@@ -1,22 +1,8 @@
 'use strict';
 
 import applescript from 'applescript';
-import path from 'path'
-import alfy from "alfy";
-
-const INBOX = 'Inbox'
-const PROJECTS = 'Projects'
-const TAGS = 'Tags'
-const FORECAST = 'Forecast'
-const FLAGGED = 'Flagged'
-const REVIEW = 'Review'
-
-const DEFAULT_PERSPECTIVES = [INBOX, PROJECTS, TAGS, FORECAST, FLAGGED, REVIEW]
-
-// Icons
-export const OF_ICON_ROOT = "/Applications/OmniFocus.app/Contents/Resources"
-const DEFAULT_PERSPECTIVE_ICON = path.join(OF_ICON_ROOT, 'AppIcon-Credits.png')
-const PERSPECTIVE_ICON = path.join(OF_ICON_ROOT, 'Perspectives@2x.png')
+import alfy from 'alfy';
+import {DEFAULT_PERSPECTIVE_ICONS, DEFAULT_PERSPECTIVES, PERSPECTIVE_ICON} from "./constants.js"
 
 // Applescript
 const PERSPECTIVE_SEARCH_SCRIPT = `tell application "OmniFocus"
@@ -51,7 +37,7 @@ function createPerspective(name) {
     let iconPath = PERSPECTIVE_ICON
     let perspectiveType = 'Custom'
     if (DEFAULT_PERSPECTIVES.includes(name)) {
-        iconPath = DEFAULT_PERSPECTIVE_ICON
+        iconPath = DEFAULT_PERSPECTIVE_ICONS[name]
         perspectiveType = 'Default'
     }
 
