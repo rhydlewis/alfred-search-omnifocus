@@ -34,10 +34,10 @@
   },
   "homepage": "https://github.com/rhydlewis/alfred-search-omnifocus",
   "dependencies": {
-    "alfy": "^2.0.0",
+    "alfy": "^2.1.0",
     "applescript": "^1.0.0",
-    "better-sqlite3": "^9.6.0",
-    "date-fns": "^3.6.0",
-    "yargs": "^17.6.2"
+    "better-sqlite3": "^11.5.0",
+    "date-fns": "^4.1.0",
+    "yargs": "^17.7.2"
   }
 }
